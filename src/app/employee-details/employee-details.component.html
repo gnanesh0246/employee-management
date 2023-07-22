@@ -1,0 +1,38 @@
+<div *ngIf="(employeeDetails$ | async) as employee">
+  <div class="mb-2">
+    <button mat-flat-button color="primary" [routerLink]="['']">Back</button>
+  </div>
+  <h2>Employee Details</h2>
+  <div class="emp__details">
+    <div class="flex flex-col flex-1">
+      <div class="emp__field">
+        <labeL>First Name</labeL>
+        <span>{{employee.firstName}}</span>
+      </div>
+      <div class="emp__field">
+        <labeL>Last Name</labeL>
+        <span>{{employee.firstName}}</span>
+      </div>
+      <div class="emp__field">
+        <labeL>City</labeL>
+        <span>{{employee.city}}</span>
+      </div>
+      <div class="emp__field">
+        <labeL>state</labeL>
+        <span>{{employee.state}}</span>
+      </div>
+      <div class="emp__field">
+        <labeL>Country</labeL>
+        <span>{{employee.country}}</span>
+      </div>
+    </div>
+    <div class="flex flex-1 flex-col" *ngIf="(reportees$ | async) as reportees">
+      <ng-container *ngIf="reportees.length">
+        <h3 class="mb-2">Reportees({{reportees.length}})</h3>
+        <div class="ml--2" *ngFor="let reportee of reportees">
+          <button (click)="viewEmployeeDetails(reportee.id);" mat-button>{{reportee.name}}</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

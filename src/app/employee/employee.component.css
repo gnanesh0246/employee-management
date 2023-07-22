@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    max-width: 400px;
+}
+
+.ml-4 {
+    margin-left: 1rem;
+}

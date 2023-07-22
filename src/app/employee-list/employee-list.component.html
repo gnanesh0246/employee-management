@@ -1,0 +1,34 @@
+<div class="emp__actions">
+  <button mat-raised-button color="primary" [routerLink]="['employee', 0]">Add Employee</button>
+</div>
+<div class="emp__table" *ngIf="data">
+  <mat-table #table [dataSource]="data">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Employee Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <button class="ml--6" (click)="viewEmployeeDetails(element.id);" mat-button color="primary">{{element.id}}</button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button (click)="editEmployee(element.id);" mat-icon-button aria-label="edit"><mat-icon>edit</mat-icon></button>
+        <button (click)="confirmDelete(element.id);" mat-icon-button aria-label="delete"><mat-icon>delete</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

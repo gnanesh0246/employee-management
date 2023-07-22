@@ -1,0 +1,17 @@
+.emp__field {
+    display: flex;
+    flex-direction:  column;
+    margin-bottom: 0.5rem;
+}
+
+.emp__field span {
+    font-weight: bold;
+}
+
+.emp__field label {
+    font-weight: normal;
+}
+.emp__details {
+    display: flex;
+    gap: 1rem;
+}
